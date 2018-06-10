@@ -1,0 +1,943 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  .markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 45px;
+  }
+  
+  @media (max-width: 767px) {
+    .markdown-body {
+      padding: 15px;
+    }
+  }
+  
+  @font-face {
+    font-family: octicons-link;
+    src: url(data:font/woff;charset=utf-8;base64,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)
+      format("woff");
+  }
+  
+  .markdown-body {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.5;
+    color: #24292e;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+  
+  .markdown-body .pl-c {
+    color: #6a737d;
+  }
+  
+  .markdown-body .pl-c1,
+  .markdown-body .pl-s .pl-v {
+    color: #005cc5;
+  }
+  
+  .markdown-body .pl-e,
+  .markdown-body .pl-en {
+    color: #6f42c1;
+  }
+  
+  .markdown-body .pl-smi,
+  .markdown-body .pl-s .pl-s1 {
+    color: #24292e;
+  }
+  
+  .markdown-body .pl-ent {
+    color: #22863a;
+  }
+  
+  .markdown-body .pl-k {
+    color: #d73a49;
+  }
+  
+  .markdown-body .pl-s,
+  .markdown-body .pl-pds,
+  .markdown-body .pl-s .pl-pse .pl-s1,
+  .markdown-body .pl-sr,
+  .markdown-body .pl-sr .pl-cce,
+  .markdown-body .pl-sr .pl-sre,
+  .markdown-body .pl-sr .pl-sra {
+    color: #032f62;
+  }
+  
+  .markdown-body .pl-v,
+  .markdown-body .pl-smw {
+    color: #e36209;
+  }
+  
+  .markdown-body .pl-bu {
+    color: #b31d28;
+  }
+  
+  .markdown-body .pl-ii {
+    color: #fafbfc;
+    background-color: #b31d28;
+  }
+  
+  .markdown-body .pl-c2 {
+    color: #fafbfc;
+    background-color: #d73a49;
+  }
+  
+  .markdown-body .pl-c2::before {
+    content: "^M";
+  }
+  
+  .markdown-body .pl-sr .pl-cce {
+    font-weight: bold;
+    color: #22863a;
+  }
+  
+  .markdown-body .pl-ml {
+    color: #735c0f;
+  }
+  
+  .markdown-body .pl-mh,
+  .markdown-body .pl-mh .pl-en,
+  .markdown-body .pl-ms {
+    font-weight: bold;
+    color: #005cc5;
+  }
+  
+  .markdown-body .pl-mi {
+    font-style: italic;
+    color: #24292e;
+  }
+  
+  .markdown-body .pl-mb {
+    font-weight: bold;
+    color: #24292e;
+  }
+  
+  .markdown-body .pl-md {
+    color: #b31d28;
+    background-color: #ffeef0;
+  }
+  
+  .markdown-body .pl-mi1 {
+    color: #22863a;
+    background-color: #f0fff4;
+  }
+  
+  .markdown-body .pl-mc {
+    color: #e36209;
+    background-color: #ffebda;
+  }
+  
+  .markdown-body .pl-mi2 {
+    color: #f6f8fa;
+    background-color: #005cc5;
+  }
+  
+  .markdown-body .pl-mdr {
+    font-weight: bold;
+    color: #6f42c1;
+  }
+  
+  .markdown-body .pl-ba {
+    color: #586069;
+  }
+  
+  .markdown-body .pl-sg {
+    color: #959da5;
+  }
+  
+  .markdown-body .pl-corl {
+    text-decoration: underline;
+    color: #032f62;
+  }
+  
+  .markdown-body .octicon {
+    display: inline-block;
+    vertical-align: text-top;
+    fill: currentColor;
+  }
+  
+  .markdown-body a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+  }
+  
+  .markdown-body a:active,
+  .markdown-body a:hover {
+    outline-width: 0;
+  }
+  
+  .markdown-body strong {
+    font-weight: inherit;
+  }
+  
+  .markdown-body strong {
+    font-weight: bolder;
+  }
+  
+  .markdown-body h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+  }
+  
+  .markdown-body img {
+    border-style: none;
+  }
+  
+  .markdown-body svg:not(:root) {
+    overflow: hidden;
+  }
+  
+  .markdown-body code,
+  .markdown-body kbd,
+  .markdown-body pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+  }
+  
+  .markdown-body hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+  }
+  
+  .markdown-body input {
+    font: inherit;
+    margin: 0;
+  }
+  
+  .markdown-body input {
+    overflow: visible;
+  }
+  
+  .markdown-body [type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  
+  .markdown-body * {
+    box-sizing: border-box;
+  }
+  
+  .markdown-body input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  
+  .markdown-body a {
+    color: #0366d6;
+    text-decoration: none;
+  }
+  
+  .markdown-body a:hover {
+    text-decoration: underline;
+  }
+  
+  .markdown-body strong {
+    font-weight: 600;
+  }
+  
+  .markdown-body hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #dfe2e5;
+  }
+  
+  .markdown-body hr::before {
+    display: table;
+    content: "";
+  }
+  
+  .markdown-body hr::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+  
+  .markdown-body table {
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  .markdown-body td,
+  .markdown-body th {
+    padding: 0;
+  }
+  
+  .markdown-body h1,
+  .markdown-body h2,
+  .markdown-body h3,
+  .markdown-body h4,
+  .markdown-body h5,
+  .markdown-body h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .markdown-body h1 {
+    font-size: 32px;
+    font-weight: 600;
+  }
+  
+  .markdown-body h2 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .markdown-body h3 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .markdown-body h4 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .markdown-body h5 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .markdown-body h6 {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .markdown-body p {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .markdown-body blockquote {
+    margin: 0;
+  }
+  
+  .markdown-body ul,
+  .markdown-body ol {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .markdown-body ol ol,
+  .markdown-body ul ol {
+    list-style-type: lower-roman;
+  }
+  
+  .markdown-body ul ul ol,
+  .markdown-body ul ol ol,
+  .markdown-body ol ul ol,
+  .markdown-body ol ol ol {
+    list-style-type: lower-alpha;
+  }
+  
+  .markdown-body dd {
+    margin-left: 0;
+  }
+  
+  .markdown-body code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+      monospace;
+    font-size: 12px;
+  }
+  
+  .markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+      monospace;
+    font-size: 12px;
+  }
+  
+  .markdown-body .octicon {
+    vertical-align: text-bottom;
+  }
+  
+  .markdown-body .pl-0 {
+    padding-left: 0 !important;
+  }
+  
+  .markdown-body .pl-1 {
+    padding-left: 4px !important;
+  }
+  
+  .markdown-body .pl-2 {
+    padding-left: 8px !important;
+  }
+  
+  .markdown-body .pl-3 {
+    padding-left: 16px !important;
+  }
+  
+  .markdown-body .pl-4 {
+    padding-left: 24px !important;
+  }
+  
+  .markdown-body .pl-5 {
+    padding-left: 32px !important;
+  }
+  
+  .markdown-body .pl-6 {
+    padding-left: 40px !important;
+  }
+  
+  .markdown-body::before {
+    display: table;
+    content: "";
+  }
+  
+  .markdown-body::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+  
+  .markdown-body > *:first-child {
+    margin-top: 0 !important;
+  }
+  
+  .markdown-body > *:last-child {
+    margin-bottom: 0 !important;
+  }
+  
+  .markdown-body a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .markdown-body .anchor {
+    float: left;
+    padding-right: 4px;
+    margin-left: -20px;
+    line-height: 1;
+  }
+  
+  .markdown-body .anchor:focus {
+    outline: none;
+  }
+  
+  .markdown-body p,
+  .markdown-body blockquote,
+  .markdown-body ul,
+  .markdown-body ol,
+  .markdown-body dl,
+  .markdown-body table,
+  .markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  
+  .markdown-body hr {
+    height: 0.25em;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #e1e4e8;
+    border: 0;
+  }
+  
+  .markdown-body blockquote {
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+  }
+  
+  .markdown-body blockquote > :first-child {
+    margin-top: 0;
+  }
+  
+  .markdown-body blockquote > :last-child {
+    margin-bottom: 0;
+  }
+  
+  .markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #444d56;
+    vertical-align: middle;
+    background-color: #fafbfc;
+    border: solid 1px #c6cbd1;
+    border-bottom-color: #959da5;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #959da5;
+  }
+  
+  .markdown-body h1,
+  .markdown-body h2,
+  .markdown-body h3,
+  .markdown-body h4,
+  .markdown-body h5,
+  .markdown-body h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  
+  .markdown-body h1 .octicon-link,
+  .markdown-body h2 .octicon-link,
+  .markdown-body h3 .octicon-link,
+  .markdown-body h4 .octicon-link,
+  .markdown-body h5 .octicon-link,
+  .markdown-body h6 .octicon-link {
+    color: #1b1f23;
+    vertical-align: middle;
+    visibility: hidden;
+  }
+  
+  .markdown-body h1:hover .anchor,
+  .markdown-body h2:hover .anchor,
+  .markdown-body h3:hover .anchor,
+  .markdown-body h4:hover .anchor,
+  .markdown-body h5:hover .anchor,
+  .markdown-body h6:hover .anchor {
+    text-decoration: none;
+  }
+  
+  .markdown-body h1:hover .anchor .octicon-link,
+  .markdown-body h2:hover .anchor .octicon-link,
+  .markdown-body h3:hover .anchor .octicon-link,
+  .markdown-body h4:hover .anchor .octicon-link,
+  .markdown-body h5:hover .anchor .octicon-link,
+  .markdown-body h6:hover .anchor .octicon-link {
+    visibility: visible;
+  }
+  
+  .markdown-body h1 {
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid #eaecef;
+  }
+  
+  .markdown-body h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eaecef;
+  }
+  
+  .markdown-body h3 {
+    font-size: 1.25em;
+  }
+  
+  .markdown-body h4 {
+    font-size: 1em;
+  }
+  
+  .markdown-body h5 {
+    font-size: 0.875em;
+  }
+  
+  .markdown-body h6 {
+    font-size: 0.85em;
+    color: #6a737d;
+  }
+  
+  .markdown-body ul,
+  .markdown-body ol {
+    padding-left: 2em;
+  }
+  
+  .markdown-body ul ul,
+  .markdown-body ul ol,
+  .markdown-body ol ol,
+  .markdown-body ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .markdown-body li > p {
+    margin-top: 16px;
+  }
+  
+  .markdown-body li + li {
+    margin-top: 0.25em;
+  }
+  
+  .markdown-body dl {
+    padding: 0;
+  }
+  
+  .markdown-body dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 600;
+  }
+  
+  .markdown-body dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+  }
+  
+  .markdown-body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+  }
+  
+  .markdown-body table th {
+    font-weight: 600;
+  }
+  
+  .markdown-body table th,
+  .markdown-body table td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+  }
+  
+  .markdown-body table tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1;
+  }
+  
+  .markdown-body table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+  }
+  
+  .markdown-body img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+  }
+  
+  .markdown-body img[align="right"] {
+    padding-left: 20px;
+  }
+  
+  .markdown-body img[align="left"] {
+    padding-right: 20px;
+  }
+  
+  .markdown-body code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(27, 31, 35, 0.05);
+    border-radius: 3px;
+  }
+  
+  .markdown-body code::before,
+  .markdown-body code::after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+  }
+  
+  .markdown-body pre {
+    word-wrap: normal;
+  }
+  
+  .markdown-body pre > code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+  
+  .markdown-body .highlight {
+    margin-bottom: 16px;
+  }
+  
+  .markdown-body .highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+  }
+  
+  .markdown-body .highlight pre,
+  .markdown-body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+  }
+  
+  .markdown-body pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+  
+  .markdown-body pre code::before,
+  .markdown-body pre code::after {
+    content: normal;
+  }
+  
+  .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+    color: #005cc5;
+    border-color: #005cc5;
+  }
+  
+  .markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+      monospace;
+    line-height: 10px;
+    color: #444d56;
+    vertical-align: middle;
+    background-color: #fafbfc;
+    border: solid 1px #d1d5da;
+    border-bottom-color: #c6cbd1;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #c6cbd1;
+  }
+  
+  .markdown-body :checked + .radio-label {
+    position: relative;
+    z-index: 1;
+    border-color: #0366d6;
+  }
+  
+  .markdown-body .task-list-item {
+    list-style-type: none;
+  }
+  
+  .markdown-body .task-list-item + .task-list-item {
+    margin-top: 3px;
+  }
+  
+  .markdown-body .task-list-item input {
+    margin: 0 0.2em 0.25em -1.6em;
+    vertical-align: middle;
+  }
+  
+  .markdown-body hr {
+    border-bottom-color: #eee;
+  }
+  </style>
+</head>
+<body>
+<article class="markdown-body">
+<h1 id="hw5-实验报告">HW5 实验报告</h1>
+<p>2015011313 徐鉴劲 计54</p>
+<h2 id="备注">备注</h2>
+<p>我没有在集群上完成实验，在别的服务器上完成的实验。</p>
+<p>因为集群上面的环境总是配不好，如果代码在集群上运行出现了问题，希望助教能够及时联系我，谢谢！</p>
+<p>集群的路径是：/home/2015011313/hw5。</p>
+<p>运行<code>./make.sh</code>就可以编译所有代码了。</p>
+<h2 id="第一题矩阵乘法并行化性能分析">第一题：矩阵乘法并行化性能分析</h2>
+<p>题目描述：N x N 的矩阵和 N 长度的向量相乘，对比：</p>
+<ol style="list-style-type: decimal">
+<li><p>并行化算法与串行算法的 a. 执行时间 b. 加速比 c. 效率</p></li>
+<li><p>通过 L2 Norm 来判断并行化结果的计算是否正确</p></li>
+<li><p>通过并行化方法计算 L2 Norm，并统计执行时间。</p></li>
+</ol>
+<h3 id="算法设计">算法设计</h3>
+<h4 id="矩阵相乘的并行化">矩阵相乘的并行化</h4>
+<p>基本上采用了HW3中给出的参考代码。 主要更改了输入输出，使得串行算法和并行算法在同一个矩阵和向量上进行测试。</p>
+<h4 id="l2-norm的并行化">L2 Norm的并行化</h4>
+<p>串行计算方法就是将两个向量中每一个元素的平方差都累加起来，并行计算就是将两个向量都分配到计算节点上（MPI_Scatter），计算完成以后通过MPI_Reduce汇聚到根节点。</p>
+<h3 id="实验结果">实验结果</h3>
+<p>通过运行：</p>
+<pre><code>./make.sh
+python script/run.py</code></pre>
+<p>可以复现得到下面的结果。</p>
+<p>我在 N = 4000, 8000, 12000, 16000, 20000, 32000, 44000 与核心数目 p = 4, 10, 20, 40的组合条件下分别进行了5次重复实验，得到下面的性能测试结果。</p>
+<h4 id="执行时间">执行时间</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">和串行的比较</th>
+<th align="left">不同计算节点数目之间的比较</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="fig/exectime_1_large.png" /></td>
+<td align="left"><img src="fig/exectime_1_small.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>从与串行程序的比较可以看出明显的加速。</p>
+<p>从不同计算节点数目之间的比较可以看出计算核心越多，计算速度就越快。</p>
+<p>但是核心数多了也并不一定好。在我进行实验的时候，系统中也有别的用户占用计算资源，进程数过多就会导致有一些进程被放入等待队列中，导致计算效率反而下降了。</p>
+<h4 id="加速比例">加速比例</h4>
+<div class="figure">
+<img src="fig/speedup_1.png" />
+
+</div>
+<p>20个核心的时候达到了最大加速比例。</p>
+<p>加速比中在N=16000的时候普遍出现了一个尖峰，这可能是由于系统中其他因素导致的，比如说多线程恰好将cache利用好了。</p>
+<h4 id="效率">效率</h4>
+<div class="figure">
+<img src="fig/efficiency_1.png" />
+
+</div>
+<p>可以看出，随着计算节点的增多，效率实际上是下降的。随着任务规模的增大，效率也有着微弱的下降，说明并行化并不是理想的。</p>
+<p>但是效率中在N=16000的时候普遍出现了一个效率尖峰，甚至导致效率超过100%，这可能是由于系统中其他因素导致的，比如说多线程恰好将cache利用好了。</p>
+<p>4个核心的时候达到了最大效率。</p>
+<h4 id="l2-norm-的耗时">L2 Norm 的耗时</h4>
+<div class="figure">
+<img src="fig/exectime_1_l2.png" />
+
+</div>
+<p>如上图所示，计算L2占用的时间很少。</p>
+<h2 id="第二题多线程链表操作问题">第二题：多线程链表操作问题</h2>
+<p>问题描述：使用Pthread对一个链表进行操作。如果不加任何的读写锁，那么多线程的时候就会出现下列问题：</p>
+<ol style="list-style-type: decimal">
+<li>两个线程同时删除操作的时候发生错误的情况可以分为：</li>
+</ol>
+<ul>
+<li><p>如果它们将要删除同一个元素：一个线程完成了删除与恢复链接的过程后，另一个线程开始删除，那么会出现找不到元素的情况。</p></li>
+<li><p>如果它们删除的是不同的元素：一个线程首先把靠近队首的节点首先被删除了，然后另一个线程在遍历链表，前往位置靠后的节点，就会在中途有访问到非法内存。</p></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Insert和Delete同时进行：</li>
+</ol>
+<ul>
+<li><p>如果Insert正好插入在Delete要删除的节点之后：Delete中途进行Insert，Insert由于访问前一个节点会产生非法访问。</p></li>
+<li><p>如果Insert正好插入在Delete将要删除的节点之前：插入节点之前的next指针可能会出现竞争，可能指向insert的节点，也可能被delete函数链接到insert之后的节点。</p></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Member 和 Delete同时执行。</li>
+</ol>
+<ul>
+<li>Member访问Delete的节点或者其后的节点：如果在Delete操作还没有彻底完成的时候就进行了访问或者遍历，那么就会出现非法内存访问。</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>两个Insert同时执行。</li>
+</ol>
+<ul>
+<li>如果两个Insert要插入的节点在同一个节点之后：则前面的这一个节点的next指针存在竞争，它只会指向一个节点，两个Insert其中之一的节点将会失去联系，变成一个孤立的点。</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Member和Insert同时执行</li>
+</ol>
+<ul>
+<li>如果Insert的元素恰好是Member所要找的，那么可能会找不到。</li>
+</ul>
+<h3 id="解题思路">解题思路</h3>
+<p>首先实现了一个简单的链表，然后直接使用粗粒度的锁进行保护。在所有操作的前面都加上一个有互斥锁保护的临界区。经过随机测试代码是正确的。</p>
+<p>随机产生了4类操作：插入、删除、查询、打印。</p>
+<p>从命令行输入实验的线程数量和数据规模就可以进行测试了。</p>
+<p>运行代码：</p>
+<pre><code>build/prob2 &lt;num_threads&gt; &lt;N&gt;</code></pre>
+<p>代码见prob2.c。</p>
+<h2 id="第三题trapezoidal问题">第三题：trapezoidal问题</h2>
+<p>题目描述：使用课本上提供的代码，将临界区改到计算函数内部，研究性能的变化。</p>
+<h3 id="实验结果-1">实验结果</h3>
+<p>直接按照提示将课本上的代码替换到相关位置，然后加上一个计时代码就可以了。</p>
+<p>我选取的测试样例是：</p>
+<p>-1 1 2560000</p>
+<p>在两个线程的时候耗时：0.309944。</p>
+<p>在一个线程的时候耗时：0.008466。</p>
+<p>在N比较大的情况下，都会出现多线程反而慢的情况。</p>
+<p>这是因为更改后的代码临界区的设置很不科学，经常进入临界区，导致线程的计算效率低下。</p>
+<p>然后题目问给出的另外的一个程序是否有这样的问题。官网上给出了两个程序，分别是omp_trap_2a.c和omp_trap_2b.c，他们分别是临界区和reduction的写法。</p>
+<p>经过试验，他们并没有这种问题。</p>
+<p>汇总实验结果如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">时间</th>
+<th align="left">更改后的代码</th>
+<th align="left">trap_a</th>
+<th align="left">trap_b</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">线程数=1</td>
+<td align="left">0.008466</td>
+<td align="left">0.016922</td>
+<td align="left">0.009974</td>
+</tr>
+<tr class="even">
+<td align="left">线程数=2</td>
+<td align="left">0.309944</td>
+<td align="left">0.015395</td>
+<td align="left">0.005215</td>
+</tr>
+</tbody>
+</table>
+<p>不过方法a略微差于方法b，因为后者使用的是OMP自带的reduction，实现得更好一些。</p>
+<h2 id="第四题schedule方法比较">第四题：Schedule方法比较</h2>
+<p>这道题目要求使用OpenMP static schedule，OpenMP dynamic schedule和Pthread task queue完成一个矩阵随机求和的问题，并比较每一种方法的性能。</p>
+<h3 id="解题思路-1">解题思路</h3>
+<p>简单起见，我使用多次重复实验的执行时间作为比较指标。将他们和串行的程序进行比较。</p>
+<p>OpenMP的实现方法就是在串行的程序上加上parallel for，将对应的一些关键变量设置成private。程序内部甚至不存在临界区。 使用静态调度就是schedule(static, 1024)，动态调度就是schedule(dynamic, 1024)。</p>
+<p>Pthread中实现的是非常简单的任务队列：用一个整数表示下一个未完成的任务是什么。每一个进程都处于一个无限循环的状态中，如果任务没有完成，就进入临界区，获取下一个任务，然后进行运算。任务完成就退出。</p>
+<p>代码在src/prob3.c中，分别与串行程序进行了时间和正确性的比较。</p>
+<h3 id="实验结果-2">实验结果</h3>
+<p>运行代码：</p>
+<p><code>python script/run_prob4.py</code></p>
+<ol style="list-style-type: decimal">
+<li>和串行算法的比较</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="left">p=4</th>
+<th align="left">p=10</th>
+<th align="left">p=20</th>
+<th align="left">p=40</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="fig/exectime_2_0.png" /></td>
+<td align="left"><img src="fig/exectime_2_1.png" /></td>
+<td align="left"><img src="fig/exectime_2_2.png" /></td>
+<td align="left"><img src="fig/exectime_2_3.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>所有算法都比并行算法提高了一大步。</p>
+<ol start="2" style="list-style-type: decimal">
+<li>算法之间的详细比较</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="left">p=4</th>
+<th align="left">p=10</th>
+<th align="left">p=20</th>
+<th align="left">p=40</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="fig/c_exectime_2_0.png" /></td>
+<td align="left"><img src="fig/c_exectime_2_1.png" /></td>
+<td align="left"><img src="fig/c_exectime_2_2.png" /></td>
+<td align="left"><img src="fig/c_exectime_2_3.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>除了任务规模比较小的时候出现了时间消耗偏大的情况，其余的时候增加线程个数都能继续提升能力。</p>
+<p>static的效果是最差的，dynamic的效果是最好的，pthread次之。因为后面两个使用的是动态调度的算法，而前面是固定的，在世纪运行过程中很容易出现分配不均匀的情况。</p>
+</article>
+</body>
+</html>

@@ -1,0 +1,40 @@
+mpirun -np 4 build/new 4000
+0.028142,0.063946,Success.
+mpirun -np 4 build/new 8000
+0.058552,0.197511,Success.
+mpirun -np 4 build/new 16000
+0.227969,0.871485,Success.
+mpirun -np 4 build/new 32000
+1.054024,3.242832,Success.
+mpirun -np 4 build/new 44000
+2.232027,6.043830,Success.
+mpirun -np 10 build/new 4000
+0.009004,0.063520,Success.
+mpirun -np 10 build/new 8000
+0.025356,0.197161,Success.
+mpirun -np 10 build/new 16000
+0.143963,0.959660,Success.
+mpirun -np 10 build/new 32000
+0.563724,3.540017,Success.
+mpirun -np 10 build/new 44000
+1.067108,6.418804,Success.
+mpirun -np 20 build/new 4000
+0.007202,0.049528,Success.
+mpirun -np 20 build/new 8000
+0.024462,0.196250,Success.
+mpirun -np 20 build/new 16000
+0.051632,0.896416,Success.
+mpirun -np 20 build/new 32000
+0.300921,3.750032,Success.
+mpirun -np 20 build/new 44000
+0.534703,6.621167,Success.
+mpirun -np 40 build/new 4000
+0.005143,0.063746,Success.
+mpirun -np 40 build/new 8000
+0.023564,0.238732,Success.
+mpirun -np 40 build/new 16000
+0.092194,0.928262,Success.
+mpirun -np 40 build/new 32000
+0.250082,3.451360,Success.
+mpirun -np 40 build/new 44000
+0.949613,8.642336,Success.
